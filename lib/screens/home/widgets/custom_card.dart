@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
   final Color colour;
+  final Widget child;
 
   CustomCard({
+    this.child,
     @required this.colour,
   });
 
@@ -12,9 +14,10 @@ class CustomCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Color(0xFF1D1E33),
+        color: colour,
       ),
       margin: EdgeInsets.all(15),
+      child: child,
     );
   }
 }
