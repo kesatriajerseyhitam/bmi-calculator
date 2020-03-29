@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../constants/styles.dart';
+import '../../widgets/custom_card.dart';
+import '../../widgets/round_icon_button.dart';
 import 'widgets/card_icon.dart';
-import 'widgets/custom_card.dart';
 
 enum Gender {
   male,
@@ -17,8 +18,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   Gender selectedGender;
-  int height = 180;
-  int weight = 50;
+  int height = 147;
+  int weight = 48;
+  int age = 22;
 
   @override
   Widget build(BuildContext context) {
@@ -134,22 +136,22 @@ class _HomeState extends State<Home> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            FloatingActionButton(
-                              backgroundColor: Color(0xFF4c4f5e),
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onTap: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
                             ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            FloatingActionButton(
-                              backgroundColor: Color(0xFF4c4f5e),
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              ),
+                            SizedBox(width: 15),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onTap: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
                             ),
                           ],
                         ),
@@ -160,21 +162,61 @@ class _HomeState extends State<Home> {
                 Expanded(
                   child: CustomCard(
                     colour: kInactiveCardColour,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'AGE',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onTap: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                            ),
+                            SizedBox(width: 15),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onTap: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          Container(
-            color: kBottomContainerColour,
-            height: kBottomContainerHeight,
-            margin: EdgeInsets.only(top: 20),
-            width: double.infinity,
-            child: Center(
-              child: Text(
-                'calculate'.toUpperCase(),
-                style: TextStyle(
-                  fontSize: kBottomContainerTextSize,
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/result');
+            },
+            child: Container(
+              color: kBottomContainerColour,
+              height: kBottomContainerHeight,
+              margin: EdgeInsets.only(top: 20),
+              width: double.infinity,
+              child: Center(
+                child: Text(
+                  'calculate'.toUpperCase(),
+                  style: TextStyle(
+                    fontSize: kBottomContainerTextSize,
+                  ),
                 ),
               ),
             ),
