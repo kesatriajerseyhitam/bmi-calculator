@@ -1,9 +1,10 @@
+import 'package:bmi_calculator/constants/styles.dart';
+import 'package:bmi_calculator/widgets/bottom_button.dart';
+import 'package:bmi_calculator/widgets/custom_card.dart';
+import 'package:bmi_calculator/widgets/round_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../constants/styles.dart';
-import '../../widgets/custom_card.dart';
-import '../../widgets/round_icon_button.dart';
 import 'widgets/card_icon.dart';
 
 enum Gender {
@@ -202,24 +203,11 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          GestureDetector(
+          BottomButton(
             onTap: () {
               Navigator.pushNamed(context, '/result');
             },
-            child: Container(
-              color: kBottomContainerColour,
-              height: kBottomContainerHeight,
-              margin: EdgeInsets.only(top: 20),
-              width: double.infinity,
-              child: Center(
-                child: Text(
-                  'calculate'.toUpperCase(),
-                  style: TextStyle(
-                    fontSize: kBottomContainerTextSize,
-                  ),
-                ),
-              ),
-            ),
+            text: 'calculate',
           ),
         ],
       ),
