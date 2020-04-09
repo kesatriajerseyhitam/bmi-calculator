@@ -1,5 +1,5 @@
 import 'package:bmi_calculator/constants/styles.dart';
-import 'package:bmi_calculator/screens/result/result.dart';
+import 'package:bmi_calculator/screens/result.dart';
 import 'package:bmi_calculator/utils/bmi_calculator.dart';
 import 'package:bmi_calculator/widgets/bottom_button.dart';
 import 'package:bmi_calculator/widgets/custom_card.dart';
@@ -216,6 +216,7 @@ class _HomeState extends State<Home> {
                   builder: (context) => Result(
                     result: calc.calculateBMI(),
                     resultText: calc.getResult(),
+                    resultAdvice: calc.getAdvice(calc.getResult()),
                   ),
                 ),
               );

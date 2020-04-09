@@ -20,3 +20,9 @@ const kTitleTextStyle = TextStyle(
   fontSize: 40.0,
   fontWeight: FontWeight.w600,
 );
+
+const TextStyle kTextSpanStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 20,
+  fontWeight: FontWeight.w700,
+);
